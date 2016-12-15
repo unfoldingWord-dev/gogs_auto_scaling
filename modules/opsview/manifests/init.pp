@@ -32,8 +32,8 @@ class opsview {
     exec { 'nagios_plugins':
         command    => '/usr/bin/git clone https://github.com/unfoldingWord-dev/nagios_plugins.git /usr/local/nagios/libexec/nrpe_local',
         creates   => "/usr/local/nagios/libexec/nrpe_local.git",
-        user      => nagios,
-        group     => nagios,
+        user      => root,
+        group     => root,
         tries     => 2,
         timeout   => 600,
         require   => [ Package['git'], Package['opsview-agent'] ],
