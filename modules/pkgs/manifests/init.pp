@@ -19,7 +19,7 @@ class pkgs {
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => "puppet:///modules/miscpkgs/tmux.conf",
+        source  => "puppet:///modules/pkgs/tmux.conf",
         require => Package['tmux'],
     }
 
