@@ -4,7 +4,7 @@
 # https://github.com/unfoldingWord-dev/gogs/releases
 #
 # Run this with the following command:
-# puppet apply /etc/puppet/manifests/site.pp -e 'include gogs'
+# puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
 REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
 
@@ -14,7 +14,7 @@ cd /mnt/git
 wget $REL_URL
 
 # Remove previous build
-rm -rf gogs
+/bin/rm -rf gogs
 
 # Extract and use our config file
 tar xzf linux_amd64_*.tar.gz

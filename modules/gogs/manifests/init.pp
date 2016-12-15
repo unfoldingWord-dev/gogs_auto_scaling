@@ -18,11 +18,11 @@ class gogs {
         require   => Exec['deploy_gogs'],
     }
 
-    file { '/etc/init/gogs.conf':
+    file { '/etc/init.d/gogs':
         owner     => root,
         group     => root,
-        mode      => 644,
-        source    => "puppet:///modules/gogs/gogs.conf",
+        mode      => 755,
+        source    => "puppet:///modules/gogs/gogs",
     }
 
     file { '/etc/logrotate.d/gogs':
@@ -37,7 +37,7 @@ class gogs {
         enable     => true,
         hasrestart => true,
         hasstatus  => true,
-        require    => File['/etc/init/gogs.conf'],
+        require    => File['/etc/init.d/gogs.conf'],
     }
 
 }
