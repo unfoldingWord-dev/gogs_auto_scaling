@@ -2,6 +2,9 @@
 #
 # Simple script to deploy latest released version of Gogs from
 # https://github.com/unfoldingWord-dev/gogs/releases
+#
+# Run this with the following command:
+# puppet apply /etc/puppet/manifests/site.pp -e 'include gogs'
 
 REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
 
