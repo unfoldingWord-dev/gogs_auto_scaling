@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 # Install necessary system packages
 yum -y install rsync screen tmux vim-enhanced telnet wget mysql puppet git nfs-utils nginx

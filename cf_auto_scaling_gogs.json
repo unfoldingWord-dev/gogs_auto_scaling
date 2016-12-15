@@ -710,7 +710,7 @@
                   "Ref": "AWS::Region"
                 },
                 "\n",
-                "wget -O - https://raw.githubusercontent.com/unfoldingWord-dev/gogs_auto_scaling/master/bootstrap.sh  | /bin/bash\n"
+                "wget -O - https://raw.githubusercontent.com/unfoldingWord-dev/gogs_auto_scaling/master/bootstrap.sh  | /bin/bash -xe\n"
               ]
             ]
           }
