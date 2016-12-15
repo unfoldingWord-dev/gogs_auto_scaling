@@ -1,17 +1,13 @@
 class gogs {
 
-    exec { 'get-gogs':
-        command   => "wget `curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4` \
-        && rm -rf gogs \
-        && tar xzf linux_amd64_*.tar.gz \
-        && /bin/cp -f /mnt/private/app.ini /mnt/git/gogs/custom/conf/app.ini \
-        && mv linux_amd64_*.tar.gz gogs/",
+    exec { 'deploy_gogs':
+        command   => '/mnt/puppet/modules/gogs/files/gogs_deploy.sh',
         user      => root,
         group     => root,
+        path      => '/sbin:/bin:/usr/sbin:/usr/bin',
         cwd       => '/mnt/git/',
         tries     => 2,
         try_sleep => 10,
-        require   => User['git'],
     }
 
     file { ['/mnt/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
@@ -19,7 +15,7 @@ class gogs {
         owner     => git,
         group     => git,
         mode      => 750,
-        require   => Exec['get-gogs'],
+        require   => Exec['deploy_gogs'],
     }
 
     file { '/etc/init.d/gogs':
