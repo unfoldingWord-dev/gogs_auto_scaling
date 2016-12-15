@@ -10,7 +10,7 @@ class pkgs {
     package { nfs-utils: ensure  => present }
     package { nginx: ensure  => present }
     #package { s3cmd: ensure  => present }
-    package { iftop: ensure  => present }
+    #package { iftop: ensure  => present }
     package { tmux: ensure => present }
     package { 'vim-enhanced': ensure  => present }
     package { 'ruby-shadow': ensure => present }
