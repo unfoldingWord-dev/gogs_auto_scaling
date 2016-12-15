@@ -4,5 +4,5 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/root
 
-55 * * * *    root    ( cd /etc/puppet && git pull ) >/dev/null 2>&1
-0  * * * *    root    puppet apply /etc/puppet/manifests/site.pp >/dev/null 2>&1
+55 * * * *    root    sleep ${RANDOM:0:2} && ( cd /etc/puppet && git pull ) >/dev/null 2>&1
+0  * * * *    root    sleep ${RANDOM:0:2} && puppet apply /etc/puppet/manifests/site.pp >/dev/null 2>&1
