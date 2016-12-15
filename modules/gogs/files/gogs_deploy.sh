@@ -8,6 +8,8 @@
 
 REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
 
+[ -f /mnt/git/gogs/${REL_URL##*/} ] && exit 0
+
 cd /mnt/git
 
 # Get latest
