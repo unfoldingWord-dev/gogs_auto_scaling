@@ -37,7 +37,7 @@ class gogs {
         enable     => true,
         hasrestart => true,
         hasstatus  => true,
-        require    => File['/etc/init.d/gogs.conf'],
+        require    => File['/etc/init.d/gogs'],
     }
 
 }
