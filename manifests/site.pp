@@ -10,6 +10,3 @@ node default {
     #include btsync # if included needs user and root directory. see sp.door43.org
     #include gogs
 }
-
-# Necessasry override for newer puppet versions
-Package {  allow_virtual => true, }

@@ -1,10 +1,15 @@
 class opsview {
 
-    file { '/etc/yum.repos.d/opsivew.repo':
+    file { '/etc/yum.repos.d/opsview.repo':
         owner   => root,
         group   => root,
         mode    => 644,
         source  => "puppet:///modules/opsview/opsview.repo",
+    }
+
+    package { 'opsview-agent':
+        ensure => present,
+        require => File['/etc/yum.repos.d/opsview.repo'],
     }
 
     file { '/usr/local/nagios/libexec/nrpe_local/check_proc_result.sh':
