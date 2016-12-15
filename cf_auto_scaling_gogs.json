@@ -815,6 +815,7 @@
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
         "CrossZone": "true",
+        "SecurityGroups": [ "sg-e5677a9c" ],
         "Listeners": [
           {
             "LoadBalancerPort": 22,
