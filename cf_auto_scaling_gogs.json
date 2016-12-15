@@ -832,6 +832,7 @@
             "LoadBalancerPort": "443",
             "InstancePort": "3000",
             "Protocol": "HTTPS",
+            "PolicyNames": [ "GogsStickySSL" ],
             "SSLCertificateId": "arn:aws:iam::002723143144:server-certificate/cloudfront/production/2018-star-door43-org"
           }
         ],
