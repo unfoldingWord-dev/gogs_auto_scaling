@@ -17,6 +17,7 @@ class opsview {
         group   => nagios,
         mode    => 755,
         source  => "puppet:///modules/opsview/check_proc_result.sh",
+        require => Package['opsview-agent'],
     }
 
     file { '/usr/local/nagios/etc/nrpe_local/door43.cfg':
@@ -24,6 +25,7 @@ class opsview {
         group   => root,
         mode    => 644,
         source  => "puppet:///modules/opsview/door43.cfg",
+        require => Package['opsview-agent'],
         notify  => Service['opsview-agent'],
     }
 
