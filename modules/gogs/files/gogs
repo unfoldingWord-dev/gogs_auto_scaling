@@ -21,7 +21,7 @@ GOGS_USER=git
 SERVICENAME="Door43 Git Service"
 LOCKFILE=/var/lock/subsys/gogs
 LOGPATH=/mnt/log/gogs
-LOGFILE=${LOGPATH}/gogs.log
+LOGFILE=${LOGPATH}/gogs-${HOSTNAME}.log
 RETVAL=0
 
 # Read configuration from /etc/sysconfig/gogs to override defaults
