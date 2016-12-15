@@ -16,6 +16,9 @@ ln -s /mnt/puppet /etc/
 # Link SSH
 rsync -havP --delete /mnt/ssh/ /etc/ssh/
 service sshd restart
+/bin/cp -f /mnt/private/authorized_keys /root/.ssh/
+/bin/cp -f /mnt/private/authorized_keys /home/ec2-user/.ssh/
+chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
 
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
