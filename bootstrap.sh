@@ -11,6 +11,7 @@ mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=
 chkconfig puppet off
 rm -rf /etc/puppet
 ln -s /mnt/puppet /etc/
+( cd /etc/puppet && git pull )
 
 # Link SSH
 rsync -havP --delete /mnt/ssh/ /etc/ssh/
