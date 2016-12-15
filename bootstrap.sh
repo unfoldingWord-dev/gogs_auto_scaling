@@ -19,6 +19,7 @@ service sshd restart
 
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
+puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
 # Reboot for good measure
 reboot
