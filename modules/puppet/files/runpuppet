@@ -1,0 +1,8 @@
+# Warning: This file is piped out via Puppet, do not modify manually
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/root
+
+55 * * * *    root    ( cd /etc/puppet && git pull ) >/dev/null 2>&1
+0  * * * *    root    puppet apply /etc/puppet/manifests/site.pp >/dev/null 2>&1
