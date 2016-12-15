@@ -22,6 +22,16 @@ class opsview {
         notify  => Service['opsview-agent'],
     }
 
+    exec { 'nagios_plugins':
+        remote    => '/usr/bin/git clone $remote https://github.com/unfoldingWord-dev/nagios_plugins.git /usr/local/nagios/libexec/nrpe_local',
+        creates   => "/usr/local/nagios/libexec/nrpe_local.git",
+        user      => nagios,
+        group     => nagios,
+        tries     => 2,
+        timeout   => 600,
+        require   => [ Package['git'], Package['opsview-agent'] ],
+    }
+
     service { "opsview-agent":
         ensure     => running,
         enable     => true,
