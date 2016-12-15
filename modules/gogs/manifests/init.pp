@@ -8,6 +8,7 @@ class gogs {
         cwd       => '/mnt/git/',
         tries     => 2,
         try_sleep => 10,
+        notify    => Service['gogs'],
     }
 
     file { ['/mnt/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
@@ -16,6 +17,7 @@ class gogs {
         group     => git,
         mode      => 750,
         require   => Exec['deploy_gogs'],
+        notify    => Service['gogs'],
     }
 
     file { '/etc/init.d/gogs':
@@ -23,6 +25,7 @@ class gogs {
         group     => root,
         mode      => 755,
         source    => "puppet:///modules/gogs/gogs",
+        notify    => Service['gogs'],
     }
 
     file { '/etc/logrotate.d/gogs':
