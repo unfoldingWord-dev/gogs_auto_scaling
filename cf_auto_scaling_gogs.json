@@ -887,8 +887,8 @@
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "443",
-            "ToPort": "443",
+            "FromPort": "3000",
+            "ToPort": "3000",
             "SourceSecurityGroupOwnerId": {
               "Fn::GetAtt": [
                 "ElasticLoadBalancer",
