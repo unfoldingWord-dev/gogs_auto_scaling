@@ -7,7 +7,7 @@ class users {
         uid      => 2024,
         gid      => 2024,
         password => '',
-        require  => [ Group['git'], Package['ruby-shadow'] ]
+        require  => [ Group['git'] ]
     }
 
     group { "git":
