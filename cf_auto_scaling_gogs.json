@@ -814,11 +814,14 @@
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
-        "AvailabilityZones": {
-          "Fn::GetAZs": ""
-        },
         "CrossZone": "true",
         "Listeners": [
+          {
+            "LoadBalancerPort": 22,
+            "InstancePort": 22,
+            "Protocol": "TCP",
+            "InstanceProtocol": "TCP"
+          },
           {
             "LoadBalancerPort": "80",
             "InstancePort": "80",
@@ -830,6 +833,18 @@
             "Protocol": "HTTPS",
             "SSLCertificateId": "arn:aws:iam::002723143144:server-certificate/cloudfront/production/2018-star-door43-org"
           }
+        ],
+        "LBCookieStickinessPolicy" : [
+          {
+            "PolicyName" : "GogsStickySSL",
+            "CookieExpirationPeriod" : "6000"
+          }
+        ],
+        "Scheme": "internet-facing",
+        "Subnets": [
+          "subnet-7250b017",
+          "subnet-72a08234",
+          "subnet-fb16158f"
         ],
         "HealthCheck": {
           "Target": "HTTP:3000/",
