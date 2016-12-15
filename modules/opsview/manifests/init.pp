@@ -13,8 +13,8 @@ class opsview {
     }
 
     file { '/usr/local/nagios/libexec/nrpe_local/check_proc_result.sh':
-        owner   => nagios,
-        group   => nagios,
+        owner   => root,
+        group   => root,
         mode    => 755,
         source  => "puppet:///modules/opsview/check_proc_result.sh",
         require => Package['opsview-agent'],
