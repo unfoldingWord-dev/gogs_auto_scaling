@@ -12,3 +12,6 @@ commit: stat
 	git commit -a
 	git pull --no-edit origin master
 	git push origin master
+
+deploy:
+	puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
