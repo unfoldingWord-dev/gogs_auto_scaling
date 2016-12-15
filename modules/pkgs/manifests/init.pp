@@ -13,7 +13,7 @@ class pkgs {
     #package { iftop: ensure  => present }
     package { tmux: ensure => present }
     package { 'vim-enhanced': ensure  => present }
-    package { 'ruby-shadow': ensure => present }
+    #package { 'ruby-shadow': ensure => present }
 
     file { '/etc/tmux.conf':
         owner   => root,
