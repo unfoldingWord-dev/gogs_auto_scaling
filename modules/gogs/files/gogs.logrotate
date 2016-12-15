@@ -1,0 +1,8 @@
+/mnt/log/gogs/*.log {
+    missingok
+    notifempty
+    daily
+    rotate 21
+    compress
+    size 5k
+}
