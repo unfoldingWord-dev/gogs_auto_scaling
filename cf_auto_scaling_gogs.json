@@ -687,6 +687,7 @@
               [
                 "#!/bin/bash -xe\n",
                 "yum update -y\n",
+                "yum install wget -y\n",
                 "/opt/aws/bin/cfn-init -v ",
                 "         --stack ",
                 {
@@ -708,7 +709,8 @@
                 {
                   "Ref": "AWS::Region"
                 },
-                "\n"
+                "\n",
+                "wget -O - https://raw.githubusercontent.com/unfoldingWord-dev/gogs_auto_scaling/master/bootstrap.sh  | /bin/bash\n"
               ]
             ]
           }
