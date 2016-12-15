@@ -4,7 +4,7 @@ class puppet {
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => "puppet:///modules/cron/runpuppet",
+        source  => "puppet:///modules/puppet/runpuppet",
     }
 
     tidy { '/var/lib/puppet/reports/':
