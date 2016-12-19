@@ -5,7 +5,7 @@
     "InstanceType": {
       "Description": "WebServer EC2 instance type",
       "Type": "String",
-      "Default": "t2.small",
+      "Default": "t2.micro",
       "AllowedValues": [
         "t1.micro",
         "t2.nano",
@@ -63,6 +63,16 @@
         "cg1.4xlarge"
       ],
       "ConstraintDescription": "must be a valid EC2 instance type."
+    },
+    "MinInstances": {
+      "Description": "Minimum EC2 instances for the web server auto scaling group",
+      "Type": "Number",
+      "Default": "3"
+    },
+    "MaxInstances": {
+      "Description": "Maximum EC2 instances for the web server auto scaling group",
+      "Type": "Number",
+      "Default": "9"
     },
     "OperatorEMail": {
       "Description": "EMail address to notify if there are any scaling operations",
@@ -536,8 +546,12 @@
         "LaunchConfigurationName": {
           "Ref": "LaunchConfig"
         },
-        "MinSize": "2",
-        "MaxSize": "9",
+        "MinSize": {
+          "Ref": "MinInstances"
+        },
+        "MaxSize": {
+          "Ref": "MaxInstances"
+        },
         "LoadBalancerNames": [
           {
             "Ref": "ElasticLoadBalancer"
