@@ -19,6 +19,7 @@ service sshd restart
 /bin/cp -f /mnt/private/authorized_keys /root/.ssh/
 /bin/cp -f /mnt/private/authorized_keys /home/ec2-user/.ssh/
 chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
+/bin/cp -f /mnt/private/my.cnf /etc/
 
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
