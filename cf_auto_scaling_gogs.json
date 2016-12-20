@@ -844,7 +844,7 @@
           },
           {
             "LoadBalancerPort": "443",
-            "InstancePort": "3000",
+            "InstancePort": "443",
             "Protocol": "HTTPS",
             "PolicyNames": [ "GogsStickySSL" ],
             "SSLCertificateId": "arn:aws:iam::002723143144:server-certificate/cloudfront/production/2018-star-door43-org"
@@ -863,7 +863,7 @@
           "subnet-fb16158f"
         ],
         "HealthCheck": {
-          "Target": "HTTP:3000/",
+          "Target": "HTTP:443/",
           "HealthyThreshold": "3",
           "UnhealthyThreshold": "5",
           "Interval": "30",
@@ -918,8 +918,8 @@
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "3000",
-            "ToPort": "3000",
+            "FromPort": "443",
+            "ToPort": "443",
             "SourceSecurityGroupOwnerId": {
               "Fn::GetAtt": [
                 "ElasticLoadBalancer",
