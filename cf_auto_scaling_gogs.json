@@ -828,6 +828,12 @@
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
+        "AccessLoggingPolicy": {
+          "EmitInterval" : 60,
+          "Enabled" : True,
+          "S3BucketName" : "logs.door43.org",
+          "S3BucketPrefix" : "git.door43.org"
+        },
         "CrossZone": "true",
         "ConnectionSettings": { "IdleTimeout": 90 },
         "SecurityGroups": [ "sg-e5677a9c" ],
