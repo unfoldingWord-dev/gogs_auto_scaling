@@ -8,6 +8,14 @@ class nginx {
         notify  => Service['nginx'],
     }
 
+    file { "/etc/nginx/nginx.conf":
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        source  => "puppet:///modules/nginx/nginx.conf",
+        notify  => Service['nginx'],
+    }
+
     service { 'nginx':
         ensure     => running,
         enable     => true,
