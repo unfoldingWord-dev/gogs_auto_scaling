@@ -1,4 +1,4 @@
-/mnt/log/gogs/*.log {
+/var/log/gogs/*.log {
     missingok
     notifempty
     daily

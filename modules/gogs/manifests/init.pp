@@ -11,13 +11,23 @@ class gogs {
         notify    => Service['gogs'],
     }
 
-    file { ['/mnt/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
+    file { ['/mnt/log/gogs', '/var/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
         mode      => 750,
         require   => Exec['deploy_gogs'],
         notify    => Service['gogs'],
+    }
+
+    exec { 'copy_logs':
+        command   => 'rsync -havP /var/log/gogs/ /mnt/log/gogs/',
+        user      => root,
+        group     => root,
+        path      => '/sbin:/bin:/usr/sbin:/usr/bin',
+        tries     => 2,
+        try_sleep => 10,
+        require   => File['/var/log/gogs'],
     }
 
     file { '/etc/init.d/gogs':
