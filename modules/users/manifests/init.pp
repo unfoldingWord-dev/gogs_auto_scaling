@@ -14,4 +14,10 @@ class users {
         gid     => 2024
     }
 
+    file { '/home/git':
+        ensure  => link,
+        target  => '/mnt/git',
+        require  => [ User['git'] ]
+    }
+
 }
