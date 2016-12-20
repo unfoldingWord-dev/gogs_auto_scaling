@@ -829,6 +829,7 @@
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
         "CrossZone": "true",
+        "ConnectionSettings": { "IdleTimeout": 90 },
         "SecurityGroups": [ "sg-e5677a9c" ],
         "Listeners": [
           {
