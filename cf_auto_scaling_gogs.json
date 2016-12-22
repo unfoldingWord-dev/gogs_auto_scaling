@@ -662,6 +662,9 @@
           "id": "888d98ab-276c-4f0f-8293-65d34a162c1b"
         }
       },
+      "Metadata" : {
+        "Comment" : "sg-da7b64a3: SSH access; sg-6b766912: EFS access; sg-6a756a13: RDS access"
+      },
       "Properties": {
         "KeyName": {
           "Ref": "KeyName"
@@ -827,6 +830,9 @@
     },
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
+      "Metadata" : {
+        "Comment" : "sg-e5677a9c: opens 80, 22, 443"
+      },
       "Properties": {
         "AccessLoggingPolicy": {
           "EmitInterval" : 60,
@@ -836,7 +842,9 @@
         },
         "CrossZone": "true",
         "ConnectionSettings": { "IdleTimeout": 90 },
-        "SecurityGroups": [ "sg-e5677a9c" ],
+        "SecurityGroups": [
+          "sg-e5677a9c"
+        ],
         "Listeners": [
           {
             "LoadBalancerPort": 22,
