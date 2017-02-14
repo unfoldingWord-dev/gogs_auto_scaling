@@ -663,7 +663,7 @@
         }
       },
       "Metadata" : {
-        "Comment" : "sg-da7b64a3: SSH access; sg-6b766912: EFS access; sg-6a756a13: RDS access"
+        "Comment" : "sg-da7b64a3: SSH access; sg-6b766912: EFS access; sg-6a756a13: RDS access; sg-d8fd96a0: Redis access"
       },
       "Properties": {
         "KeyName": {
@@ -692,7 +692,8 @@
           },
           "sg-da7b64a3",
           "sg-6b766912",
-          "sg-6a756a13"
+          "sg-6a756a13",
+          "sg-d8fd96a0"
         ],
         "InstanceType": {
           "Ref": "InstanceType"
