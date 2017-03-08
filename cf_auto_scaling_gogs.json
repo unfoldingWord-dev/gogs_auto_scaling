@@ -874,7 +874,7 @@
         "HealthCheck": {
           "Target": "HTTP:443/",
           "HealthyThreshold": "3",
-          "UnhealthyThreshold": "5",
+          "UnhealthyThreshold": "2",
           "Interval": "30",
           "Timeout": "5"
         }
