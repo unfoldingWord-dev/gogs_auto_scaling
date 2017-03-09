@@ -32,5 +32,8 @@ chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
 puppet apply /etc/puppet/manifests/site.pp --summarize
 puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
+# Set Gogs to start on boot
+echo '/etc/init.d/gogs restart' >> /etc/rc.local
+
 # Reboot for good measure
-#reboot
+reboot
