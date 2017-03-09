@@ -14,11 +14,10 @@ mkswap /swapfile
 echo '/swapfile   none        swap    sw              0   0' >> /etc/fstab
 swapon -a
 
-# Link puppet
+# Get latest puppet
 chkconfig puppet off
 rm -rf /etc/puppet
-ln -s /mnt/puppet /etc/
-( cd /etc/puppet && git pull )
+git clone https://github.com/unfoldingWord-dev/gogs_auto_scaling.git /etc/puppet
 
 # Link SSH
 rsync -havP --delete /mnt/ssh/ /etc/ssh/
