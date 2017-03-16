@@ -5,7 +5,7 @@
     "InstanceType": {
       "Description": "WebServer EC2 instance type",
       "Type": "String",
-      "Default": "t2.small",
+      "Default": "t2.micro",
       "AllowedValues": [
         "t1.micro",
         "t2.nano",
@@ -862,7 +862,14 @@
             "LoadBalancerPort": "443",
             "InstancePort": "443",
             "Protocol": "HTTPS",
+            "PolicyNames": [ "GogsStickySSL" ],
             "SSLCertificateId": "arn:aws:iam::002723143144:server-certificate/cloudfront/production/2018-star-door43-org"
+          }
+        ],
+        "LBCookieStickinessPolicy" : [
+          {
+            "PolicyName" : "GogsStickySSL",
+            "CookieExpirationPeriod" : "600"
           }
         ],
         "Scheme": "internet-facing",
@@ -874,7 +881,7 @@
         "HealthCheck": {
           "Target": "HTTP:443/",
           "HealthyThreshold": "3",
-          "UnhealthyThreshold": "2",
+          "UnhealthyThreshold": "5",
           "Interval": "30",
           "Timeout": "5"
         }
