@@ -5,7 +5,7 @@
     "InstanceType": {
       "Description": "WebServer EC2 instance type",
       "Type": "String",
-      "Default": "t2.micro",
+      "Default": "t2.medium",
       "AllowedValues": [
         "t1.micro",
         "t2.nano",
@@ -67,12 +67,12 @@
     "MinInstances": {
       "Description": "Minimum EC2 instances for the web server auto scaling group",
       "Type": "Number",
-      "Default": "3"
+      "Default": "1"
     },
     "MaxInstances": {
       "Description": "Maximum EC2 instances for the web server auto scaling group",
       "Type": "Number",
-      "Default": "9"
+      "Default": "1"
     },
     "OperatorEMail": {
       "Description": "EMail address to notify if there are any scaling operations",
@@ -540,9 +540,7 @@
     "WebServerGroup": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
-        "AvailabilityZones": {
-          "Fn::GetAZs": ""
-        },
+        "AvailabilityZones": [ "us-west-2b" ],
         "LaunchConfigurationName": {
           "Ref": "LaunchConfig"
         },
@@ -698,6 +696,12 @@
         "InstanceType": {
           "Ref": "InstanceType"
         },
+        "Volumes" : [
+          {
+            "VolumeId" : "vol-0d794fbc8157226e0",
+            "Device" : "/dev/sdf"
+          }
+        ],
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
