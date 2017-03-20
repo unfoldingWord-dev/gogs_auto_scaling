@@ -16,7 +16,10 @@ rm -rf /etc/puppet
 git clone https://github.com/unfoldingWord-dev/gogs_auto_scaling.git /etc/puppet
 
 # Mount configuration volume
+mkdir -p /config
 mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-acfe3f05.efs.us-west-2.amazonaws.com:/ /config/
+echo 'mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-acfe3f05.efs.us-west-2.amazonaws.com:/ /config/' >> /etc/rc.local
+
 
 # Link SSH
 rsync -havP --delete /config/ssh/ /etc/ssh/
