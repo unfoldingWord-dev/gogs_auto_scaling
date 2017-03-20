@@ -23,5 +23,5 @@ wget $REL_URL
 
 # Extract and use our config file
 tar xzf linux_amd64_*.tar.gz
-/bin/cp -f /mnt/private/app.ini /mnt/git/gogs/custom/conf/app.ini
+/bin/cp -f /config/private/app.ini /mnt/git/gogs/custom/conf/app.ini
 mv linux_amd64_*.tar.gz gogs/
