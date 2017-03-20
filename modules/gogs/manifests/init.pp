@@ -5,7 +5,7 @@ class gogs {
         user      => root,
         group     => root,
         path      => '/sbin:/bin:/usr/sbin:/usr/bin',
-        cwd       => '/etc/git/',
+        cwd       => '/mnt/git/',
         tries     => 2,
         try_sleep => 10,
         notify    => Service['gogs'],
