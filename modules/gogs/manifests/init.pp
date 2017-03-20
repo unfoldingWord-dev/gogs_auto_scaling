@@ -1,11 +1,11 @@
 class gogs {
 
     exec { 'deploy_gogs':
-        command   => '/mnt/puppet/modules/gogs/files/gogs_deploy.sh',
+        command   => '/etc/puppet/modules/gogs/files/gogs_deploy.sh',
         user      => root,
         group     => root,
         path      => '/sbin:/bin:/usr/sbin:/usr/bin',
-        cwd       => '/mnt/git/',
+        cwd       => '/etc/git/',
         tries     => 2,
         try_sleep => 10,
         notify    => Service['gogs'],
