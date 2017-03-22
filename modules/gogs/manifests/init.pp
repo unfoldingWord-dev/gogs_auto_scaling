@@ -47,7 +47,7 @@ class gogs {
 
     service { 'gogs':
         ensure     => running,
-        enable     => false, # becuase NFS needs mounted first on boot
+        enable     => true,
         hasrestart => true,
         hasstatus  => true,
         require    => File['/etc/init.d/gogs'],
