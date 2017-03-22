@@ -30,6 +30,13 @@ class gogs {
         require   => File['/var/log/gogs'],
     }
 
+    file { '/etc/cron.d/gogs_copy':
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        source  => "puppet:///modules/puppet/gogs_copy",
+    }
+
     file { '/etc/init.d/gogs':
         owner     => root,
         group     => root,

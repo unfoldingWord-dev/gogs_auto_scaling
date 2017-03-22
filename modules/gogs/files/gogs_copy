@@ -1,0 +1,10 @@
+# Warning: This file is piped out via Puppet, do not modify manually
+#
+# Copys gogs data from EBS on /mnt to EFS on /config as a backup
+
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=git
+HOME=/home/git
+
+15  * * * *    git    [ -d /mnt/git/gogs-repositories ] && rsync -havP --delete --max-delete=10000 /mnt/git/ /config/git/ >/dev/null 2>&1
