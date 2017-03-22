@@ -31,7 +31,6 @@ chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
 
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
-puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
 # Add mount for EBS volume
 echo 'UUID=feb25d8e-68b2-424c-a2cb-37619cd6741a /mnt ext4 defaults,noatime,nofail 0 2' >>/etc/fstab
