@@ -11,7 +11,7 @@ class gogs {
         notify    => Service['gogs'],
     }
 
-    file { ['/mnt/log/gogs', '/var/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
+    file { ['/config/log/gogs', '/var/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
@@ -21,7 +21,7 @@ class gogs {
     }
 
     exec { 'copy_logs':
-        command   => 'rsync -havP /var/log/gogs/ /mnt/log/gogs/',
+        command   => 'rsync -havP /var/log/gogs/ /config/log/gogs/',
         user      => root,
         group     => root,
         path      => '/sbin:/bin:/usr/sbin:/usr/bin',
