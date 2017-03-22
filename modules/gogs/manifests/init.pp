@@ -34,7 +34,7 @@ class gogs {
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => "puppet:///modules/puppet/gogs_copy",
+        source  => "puppet:///modules/gogs/gogs_copy",
     }
 
     file { '/etc/init.d/gogs':
