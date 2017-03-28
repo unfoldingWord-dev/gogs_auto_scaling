@@ -736,7 +736,7 @@
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Metadata" : {
-        "Comment" : "sg-e5677a9c: opens 80, 22, 443"
+        "Comment" : "sg-e5677a9c: opens 80, 22, 443, 5666"
       },
       "Properties": {
         "AccessLoggingPolicy": {
@@ -768,6 +768,12 @@
             "Protocol": "HTTPS",
             "PolicyNames": [ "GogsStickySSL" ],
             "SSLCertificateId": "arn:aws:iam::002723143144:server-certificate/cloudfront/production/2018-star-door43-org"
+          },
+          {
+            "LoadBalancerPort": "5666",
+            "InstancePort": "5666",
+            "Protocol": "TCP",
+            "InstanceProtocol": "TCP"
           }
         ],
         "LBCookieStickinessPolicy" : [
@@ -840,6 +846,23 @@
             "IpProtocol": "tcp",
             "FromPort": "443",
             "ToPort": "443",
+            "SourceSecurityGroupOwnerId": {
+              "Fn::GetAtt": [
+                "ElasticLoadBalancer",
+                "SourceSecurityGroup.OwnerAlias"
+              ]
+            },
+            "SourceSecurityGroupName": {
+              "Fn::GetAtt": [
+                "ElasticLoadBalancer",
+                "SourceSecurityGroup.GroupName"
+              ]
+            }
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "5666",
+            "ToPort": "5666",
             "SourceSecurityGroupOwnerId": {
               "Fn::GetAtt": [
                 "ElasticLoadBalancer",
