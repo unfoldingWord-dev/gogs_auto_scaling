@@ -29,6 +29,12 @@ service sshd restart
 chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
 /bin/cp -f /config/private/my.cnf /etc/
 
+# Setup SSL
+mkdir -p /etc/pki/tls/certs/deployed
+/bin/cp -f /config/private/2015-star.door43.org.bundled.crt /etc/pki/tls/certs/deployed/
+/bin/cp -f /config/private/2015-star.door43.org.key /etc/pki/tls/certs/deployed/
+openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
+
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
 
