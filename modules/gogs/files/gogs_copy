@@ -7,4 +7,4 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=git
 HOME=/home/git
 
-15  * * * *    git    [ -d /mnt/git/gogs-repositories ] && rsync -havP --delete --max-delete=10000 /mnt/git/ /config/git/ >/dev/null 2>&1
+15  0 * * *    git    [ -d /mnt/git/gogs-repositories ] && rsync -havP --delete --max-delete=10000 /mnt/git/ /config/git/ >/dev/null 2>&1
