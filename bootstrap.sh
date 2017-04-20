@@ -3,9 +3,11 @@
 # This script sets up a new CentOS/Redhat or Ubuntu/Debian server to run as a
 # Door43 Content Service node.
 #
-# This script fails on any error
+# This script fails on any error.
 #
 # This should be run as root or with sudo privileges.
+#
+# <jesse@unfoldingword.org>
 
 # Identify operating system
 OS='rpm_compat' # default to RPM compatible

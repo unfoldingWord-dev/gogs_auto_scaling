@@ -5,13 +5,13 @@ class gogs {
         user      => root,
         group     => root,
         path      => '/sbin:/bin:/usr/sbin:/usr/bin',
-        cwd       => '/mnt/git/',
+        cwd       => '/home/git/',
         tries     => 2,
         try_sleep => 10,
         notify    => Service['gogs'],
     }
 
-    file { ['/config/log/gogs', '/var/log/gogs', '/mnt/git/gogs/custom', '/mnt/git/gogs/custom/conf']:
+    file { ['/config/log/gogs', '/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
@@ -22,6 +22,7 @@ class gogs {
 
     exec { 'copy_logs':
         command   => 'rsync -havP /var/log/gogs/ /config/log/gogs/',
+        onlyif    => 'test -d /config/log/gogs/',
         user      => root,
         group     => root,
         path      => '/sbin:/bin:/usr/sbin:/usr/bin',
