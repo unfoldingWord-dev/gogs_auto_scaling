@@ -1,10 +1,10 @@
 class nginx {
 
-    file { "/etc/nginx/conf.d/git.door43.org.conf":
+    file { "/etc/nginx/conf.d/door43_content_service.conf":
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => "puppet:///modules/nginx/git.door43.org.conf",
+        content => template("nginx/door43_content_service.conf.erb"),
         notify  => Service['nginx'],
     }
 
