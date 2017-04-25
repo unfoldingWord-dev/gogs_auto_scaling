@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -xe
+#!/usr/bin/env bash
 #
 # This script sets up a new CentOS/Redhat or Ubuntu/Debian server to run as a
 # Door43 Content Service node.
@@ -9,11 +9,13 @@
 #
 # <jesse@unfoldingword.org>
 
+set -xe
+
 PROGNAME="${0##*/}"
 
 help() {
     echo
-    echo "Setup new Door43 Content Service server.
+    echo "Setup new Door43 Content Service server."
     echo
     echo "Usage:"
     echo "   $PROGNAME -s <server_name>"
@@ -71,7 +73,7 @@ git clone https://github.com/unfoldingWord-dev/gogs_auto_scaling.git /etc/puppet
 
 # Set variables for puppet via facter
 facter_dir=`find /usr/lib/ -type d -name facter | head -1`
-sed -e "s/SERVER_NAME/$server_name" facts/dcs.rb >"$facter_dir/dcs.rb"
+sed -e "s/SERVER_NAME/$server_name/" facts/dcs.rb >"$facter_dir/dcs.rb"
 
 # Run puppet
 puppet apply /etc/puppet/manifests/site.pp --summarize
