@@ -11,5 +11,5 @@ The only variable needed to get started is $server_name, which should be your de
 To get started on a new server, follow these steps.
 
     wget https://raw.githubusercontent.com/unfoldingWord-dev/gogs_auto_scaling/master/bootstrap.sh
-    bash bootstrap.sh -h your.host.name
+    bash bootstrap.sh -s your.host.name
 
