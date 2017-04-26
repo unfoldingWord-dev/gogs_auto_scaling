@@ -72,7 +72,7 @@ rm -rf /etc/puppet
 git clone https://github.com/unfoldingWord-dev/gogs_auto_scaling.git /etc/puppet
 
 # Set variables for puppet via facter
-facter_dir=`find /usr/lib/ -type d -name facter | head -1`
+facter_dir=`find /usr/ -type d -name facter | head -1`
 sed -e "s/SERVER_NAME/$server_name/" facts/dcs.rb >"$facter_dir/dcs.rb"
 
 # Run puppet
