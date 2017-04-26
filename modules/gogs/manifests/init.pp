@@ -9,9 +9,10 @@ class gogs {
         tries     => 2,
         try_sleep => 10,
         notify    => Service['gogs'],
+        require   => User['git'],
     }
 
-    file { ['/config/log/gogs', '/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
+    file { ['/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
