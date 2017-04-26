@@ -1,5 +1,13 @@
 class users {
 
+    exec { 'create_git_home':
+        command   => 'mkdir /home/git',
+        onlyif    => 'test ! -d /home/git/',
+        user      => root,
+        group     => root,
+        path      => '/sbin:/bin:/usr/sbin:/usr/bin',
+    }
+
     user { "git":
         comment  => "",
         home     => "/home/git",
@@ -7,7 +15,7 @@ class users {
         uid      => 2024,
         gid      => 2024,
         password => '',
-        require  => [ Group['git'] ]
+        require  => [ Group['git'], Exec['create_git_home'] ]
     }
 
     group { "git":
