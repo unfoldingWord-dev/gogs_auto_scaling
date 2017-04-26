@@ -1,8 +1,8 @@
 class users {
 
     user { "git":
-        comment  => "help@doo43.org",
-        home     => "/mnt/git",
+        comment  => "",
+        home     => "/home/git",
         shell    => "/bin/bash",
         uid      => 2024,
         gid      => 2024,
@@ -12,12 +12,6 @@ class users {
 
     group { "git":
         gid     => 2024
-    }
-
-    file { '/home/git':
-        ensure  => link,
-        target  => '/mnt/git',
-        require  => [ User['git'] ]
     }
 
 }

@@ -36,6 +36,7 @@ mkdir -p /etc/pki/tls/certs/deployed
 openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 
 # Run puppet
+### TODO, need to get /mnt mounted for git home directory before puppet runs
 puppet apply /etc/puppet/manifests/site.pp --summarize
 
 # Add mount for EBS volume
