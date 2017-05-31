@@ -7,4 +7,5 @@ node default {
     include opsview
     include pkgs
     include gogs
+    include dbbackup
 }
