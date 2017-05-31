@@ -16,6 +16,14 @@ class nginx {
         notify  => Service['nginx'],
     }
 
+    file { "/etc/nginx/redirects.conf":
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        source  => "puppet:///modules/nginx/redirects.conf",
+        notify  => Service['nginx'],
+    }
+
     service { 'nginx':
         ensure     => running,
         enable     => true,
