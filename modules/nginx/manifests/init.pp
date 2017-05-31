@@ -16,11 +16,11 @@ class nginx {
         notify  => Service['nginx'],
     }
 
-    file { "/etc/nginx/redirects.conf":
+    file { "/etc/nginx/redirects":
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => "puppet:///modules/nginx/redirects.conf",
+        source  => "puppet:///modules/nginx/redirects",
         notify  => Service['nginx'],
     }
 
