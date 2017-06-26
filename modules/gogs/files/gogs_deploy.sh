@@ -27,3 +27,6 @@ tar xzf linux_amd64_*.tar.gz
 /bin/cp -f /config/private/app.ini /home/git/gogs/custom/conf/app.ini
 /bin/chgrp git /home/git/gogs/custom/conf/app.ini
 mv linux_amd64_*.tar.gz gogs/
+
+# Restart service
+service gogs restart

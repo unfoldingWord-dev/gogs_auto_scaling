@@ -8,8 +8,7 @@ class gogs {
         cwd       => '/home/git/',
         tries     => 2,
         try_sleep => 10,
-        notify    => Service['gogs'],
-        require   => User['git'],
+        require   => [ User['git'], File['/etc/init.d/gogs'], ],
     }
 
     file { ['/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
