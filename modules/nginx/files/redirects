@@ -9,3 +9,5 @@ rewrite ^/Door43/UAG$ /Door43/en_uag;
 rewrite ^/Door43/UAG/(.*)$ /Door43/en_uag/$1;
 rewrite ^/Door43/UGG$ /Door43/en_ugg;
 rewrite ^/Door43/UGG/(.*)$ /Door43/en_ugg/$1;
+rewrite ^/Door43/T4T$ /Door43/en_t4t;
+rewrite ^/Door43/T4T/(.*)$ /Door43/en_t4t/$1;
