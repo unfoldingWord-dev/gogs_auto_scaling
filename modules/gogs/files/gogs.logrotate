@@ -5,4 +5,7 @@
     rotate 21
     compress
     size 5k
+    postrotate
+    /sbin/service gogs restart > /dev/null 2>/dev/null || true
+    endscript
 }
