@@ -10,7 +10,6 @@ server {
 server {
     listen       443 ssl;
     server_name  <%= @dcs_server_name %>;
-    access_log   off;
 
     keepalive_timeout   95;
     client_max_body_size 50m;
