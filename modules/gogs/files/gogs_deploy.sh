@@ -7,7 +7,7 @@
 # puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
 # Check what the latest release is, bail if we already have it
-REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
+REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases/latest | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
 [ -f /home/git/gogs/${REL_URL##*/} ] && exit 0
 
 # Sleep random amount of time to prevent clobbering from another node
