@@ -2,6 +2,7 @@
 
 # Custom redirects for DCS
 rewrite ^/Door43/en_ugl/src/master/content$ /Door43/en_ugl/src/master/content/index.md;
+rewrite ^/Door43/en_uhal/src/master/content$ /Door43/en_uhal/src/master/content/index.md;
 rewrite ^/Door43/UGL$ /Door43/en_ugl;
 rewrite ^/Door43/UGL/(.*)$ /Door43/en_ugl/$1;
 rewrite ^/Door43/UHG$ /Door43/en_uhg;
