@@ -1,8 +1,12 @@
 # Warning: This file is piped out via Puppet, do not modify manually
 
 # Custom redirects for DCS
-rewrite ^/(.*)/en_ugl/src/master/content$ /$1/en_ugl/src/master/content/index.md;
-rewrite ^/(.*)/en_uhal/src/master/content$ /$1/en_uhal/src/master/content/index.md;
+# https://git.door43.org/Door43/en_uhal/src/branch/master/content/index.md
+
+rewrite ^/(.*)/en_ugl/src/master/content$ /$1/en_ugl/src/branch/master/content/index.md;
+rewrite ^/(.*)/en_ugl/src/branch/master/content$ /$1/en_ugl/src/branch/master/content/index.md;
+rewrite ^/(.*)/en_uhal/src/master/content$ /$1/en_uhal/src/branch/master/content/index.md;
+rewrite ^/(.*)/en_uhal/src/branch/master/content$ /$1/en_uhal/src/branch/master/content/index.md;
 rewrite ^/Door43/UGL$ /Door43/en_ugl;
 rewrite ^/Door43/UGL/(.*)$ /Door43/en_ugl/$1;
 rewrite ^/Door43/UHG$ /Door43/en_uhg;
