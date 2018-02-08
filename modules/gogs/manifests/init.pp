@@ -1,22 +1,22 @@
 class gogs {
 
-    exec { 'deploy_gogs':
-        command   => '/etc/puppet/modules/gogs/files/gogs_deploy.sh',
-        user      => root,
-        group     => root,
-        path      => '/sbin:/bin:/usr/sbin:/usr/bin',
-        cwd       => '/home/git/',
-        tries     => 2,
-        try_sleep => 10,
-        require   => [ User['git'], File['/etc/init.d/gogs'], ],
-    }
+    #exec { 'deploy_gogs':
+        #command   => '/etc/puppet/modules/gogs/files/gogs_deploy.sh',
+        #user      => root,
+        #group     => root,
+        #path      => '/sbin:/bin:/usr/sbin:/usr/bin',
+        #cwd       => '/home/git/',
+        #tries     => 2,
+        #try_sleep => 10,
+        #require   => [ User['git'], File['/etc/init.d/gogs'], ],
+    #}
 
     file { ['/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
         mode      => 750,
-        require   => Exec['deploy_gogs'],
+        #require   => Exec['deploy_gogs'],
         notify    => Service['gogs'],
     }
 
