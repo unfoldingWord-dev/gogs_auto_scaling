@@ -7,16 +7,16 @@ rewrite ^/(.*)/en_ugl/src/master/content$ /$1/en_ugl/src/branch/master/content/i
 rewrite ^/(.*)/en_ugl/src/branch/master/content$ /$1/en_ugl/src/branch/master/content/index.md;
 rewrite ^/(.*)/en_uhal/src/master/content$ /$1/en_uhal/src/branch/master/content/index.md;
 rewrite ^/(.*)/en_uhal/src/branch/master/content$ /$1/en_uhal/src/branch/master/content/index.md;
-rewrite ^/Door43/UGL$ /unfoldingWord/en_ugl;
-rewrite ^/Door43/UGL/(.*)$ /unfoldingWord/en_ugl/$1;
-rewrite ^/Door43/UHG$ /unfoldingWord/en_uhg;
-rewrite ^/Door43/UHG/(.*)$ /unfoldingWord/en_uhg/$1;
-rewrite ^/Door43/UAG$ /unfoldingWord/en_uag;
-rewrite ^/Door43/UAG/(.*)$ /unfoldingWord/en_uag/$1;
-rewrite ^/Door43/UGG$ /unfoldingWord/en_ugg;
-rewrite ^/Door43/UGG/(.*)$ /unfoldingWord/en_ugg/$1;
-rewrite ^/Door43/T4T$ /unfoldingWord/en_t4t;
-rewrite ^/Door43/T4T/(.*)$ /unfoldingWord/en_t4t/$1;
+rewrite ^/Door43/UGL$ /unfoldingWord/en_ugl permanent;
+rewrite ^/Door43/UGL/(.*)$ /unfoldingWord/en_ugl/$1 permanent;
+rewrite ^/Door43/UHG$ /unfoldingWord/en_uhg permanent;
+rewrite ^/Door43/UHG/(.*)$ /unfoldingWord/en_uhg/$1 permanent;
+rewrite ^/Door43/UAG$ /unfoldingWord/en_uag permanent;
+rewrite ^/Door43/UAG/(.*)$ /unfoldingWord/en_uag/$1 permanent;
+rewrite ^/Door43/UGG$ /unfoldingWord/en_ugg permanent;
+rewrite ^/Door43/UGG/(.*)$ /unfoldingWord/en_ugg/$1 permanent;
+rewrite ^/Door43/T4T$ /unfoldingWord/en_t4t permanent;
+rewrite ^/Door43/T4T/(.*)$ /unfoldingWord/en_t4t/$1 permanent;
 
-rewrite ^/Door43$ /unfoldingWord;
-rewrite ^/Door43/(.*)$ /unfoldingWord/$1;
+rewrite ^/Door43$ /unfoldingWord permanent;
+rewrite ^/Door43/(.*)$ /unfoldingWord/$1 permanent;
