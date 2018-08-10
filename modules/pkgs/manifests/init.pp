@@ -7,6 +7,7 @@ class pkgs {
     package { telnet: ensure  => present }
     package { wget: ensure  => present }
     package { nginx: ensure  => present }
+    package { docker: ensure  => present }
     package { tmux: ensure => present }
 
     file { '/etc/tmux.conf':
