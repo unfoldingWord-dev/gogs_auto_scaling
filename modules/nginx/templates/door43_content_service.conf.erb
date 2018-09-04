@@ -37,4 +37,18 @@ server {
         proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
     }
 
+    location /client/webhook {
+        proxy_pass             http://localhost:8000/;
+        proxy_set_header       Host $host;
+        proxy_read_timeout 120;
+        proxy_buffering off;
+    }
+
+    location /dev-client/webhook {
+        proxy_pass             http://localhost:8001/;
+        proxy_set_header       Host $host;
+        proxy_read_timeout 120;
+        proxy_buffering off;
+    }
+
 }
