@@ -51,14 +51,14 @@ server {
         proxy_buffering off;
     }
 
-    location /tx {
+    location /tx/ {
         proxy_pass             http://localhost:8010/;
         proxy_set_header       Host $host;
         proxy_read_timeout 120;
         proxy_buffering off;
     }
 
-    location /dev-tx {
+    location /dev-tx/ {
         proxy_pass             http://localhost:8011/;
         proxy_set_header       Host $host;
         proxy_read_timeout 120;
