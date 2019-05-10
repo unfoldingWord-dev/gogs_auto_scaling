@@ -16,7 +16,7 @@
 # Default values
 NAME=gitea
 GOGS_HOME=/home/git
-GOGS_PATH=${GOGS_HOME}/gogs/gitea
+GOGS_PATH=${GOGS_HOME}/gitea/gitea
 GOGS_USER=git
 SERVICENAME="Door43 Git Service"
 LOCKFILE=/var/lock/subsys/gogs
