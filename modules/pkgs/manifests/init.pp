@@ -9,6 +9,7 @@ class pkgs {
     package { nginx: ensure  => present }
     package { docker: ensure  => present }
     package { tmux: ensure => present }
+    package { iptables: ensure => present }
 
     file { '/etc/tmux.conf':
         owner   => root,
