@@ -6,6 +6,9 @@
 # Run this with the following command:
 # puppet apply /etc/puppet/manifests/site.pp -e 'include gogs' --summarize
 
+## Exit as this shouldn't be run currently 2019-05-10
+exit 0
+
 # Check what the latest release is, bail if we already have it
 REL_URL=`curl -s https://api.github.com/repos/unfoldingWord-dev/gogs/releases/latest | grep browser_download_url | head -n 1 | cut -d '"' -f 4`
 [ -f /home/git/gogs/${REL_URL##*/} ] && exit 0
