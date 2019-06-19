@@ -11,13 +11,22 @@ class gogs {
         #require   => [ User['git'], File['/etc/init.d/gogs'], ],
     #}
 
-    file { ['/var/log/gogs', '/home/git/gogs/custom', '/home/git/gogs/custom/conf']:
+    file { ['/var/log/gogs', '/home/git/gitea/custom', '/home/git/gitea/custom/conf']:
         ensure    => directory,
         owner     => git,
         group     => git,
         mode      => 750,
         #require   => Exec['deploy_gogs'],
         notify    => Service['gogs'],
+    }
+
+    exec { 'create_blank_readme':
+        command   => 'mkdir -p /home/git/gitea/custom/options/readme && touch /home/git/gitea/custom/options/readme/blank',
+        onlyif    => 'test ! -f /home/git/gitea/custom/options/readme/blank',
+        user      => git,
+        group     => git,
+        path      => '/sbin:/bin:/usr/sbin:/usr/bin',
+        #require   => Exec['deploy_gogs'],
     }
 
     exec { 'copy_logs':
