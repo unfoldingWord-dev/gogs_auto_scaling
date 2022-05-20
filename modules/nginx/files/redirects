@@ -17,8 +17,8 @@ rewrite ^/Door43/UGG$ /unfoldingWord/en_ugg permanent;
 rewrite ^/Door43/UGG/(.*)$ /unfoldingWord/en_ugg/$1 permanent;
 rewrite ^/Door43/T4T$ /unfoldingWord/en_t4t permanent;
 rewrite ^/Door43/T4T/(.*)$ /unfoldingWord/en_t4t/$1 permanent;
-rewrite ^/Door43/ContentTechs/wiki/Minimum-USFM-Requirements$ https://forum.ccbt.bible/t/usfm-information/85 permanent;
-rewrite ^/unfoldingWord/ContentTechs/wiki/Minimum-USFM-Requirements$ https://forum.ccbt.bible/t/usfm-information/85 permanent;
+rewrite ^/Door43/ContentTechs/wiki/Minimum-USFM-Requirements$ https://forum.door43.org/t/usfm-information/85 permanent;
+rewrite ^/unfoldingWord/ContentTechs/wiki/Minimum-USFM-Requirements$ https://forum.door43.org/t/usfm-information/85 permanent;
 
 rewrite ^/Door43$ /unfoldingWord permanent;
 rewrite ^/Door43/(.*)$ /unfoldingWord/$1 permanent;
